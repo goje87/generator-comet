@@ -1,0 +1,16 @@
+<link rel="import" href="/components/bower/polymer/polymer.html" />
+<link rel="import" href="/components/pages/app-page.html" />
+
+<dom-module id="pg-<%= name %>">
+  <link rel="import" href="/themes/theme.css" type="css">
+  <template>
+    <app-page>
+      <h1> Welcome <%= name %>!</h1>
+    </app-page>
+  </template>
+  <script>
+  Polymer({
+    is: 'pg-<%= name %>'
+  });
+  </script>
+</dom-module>

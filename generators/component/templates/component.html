@@ -1,0 +1,19 @@
+<link rel="import" href="/components/bower/polymer/polymer.html" />
+
+<dom-module id="<%= name %>">
+  <style>
+  :host {
+    display: inline-block;
+  }
+  </style>
+
+  <template>
+    <content></content>
+  </template>
+  
+  <script>
+  Polymer({
+    is: '<%= name %>'
+  });
+  </script>
+</dom-module>
