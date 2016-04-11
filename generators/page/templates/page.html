@@ -1,11 +1,13 @@
-<link rel="import" href="/components/bower/polymer/polymer.html" />
-<link rel="import" href="/components/pages/app-page.html" />
+<link rel="import" href="../bower/polymer/polymer.html" />
+<link rel="import" href="../pages/app-page.html" />
 
 <dom-module id="pg-<%= name %>">
-  <link rel="import" href="/themes/theme.css" type="css">
+  <link rel="stylesheet" href="../../themes/theme.css" type="css">
   <template>
     <app-page>
-      <h1> Welcome <%= name %>!</h1>
+      <section class="layout horizontal center-justified">
+        <h1> Welcome <%= name %>!</h1>
+      </section>
     </app-page>
   </template>
   <script>

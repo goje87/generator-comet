@@ -1,12 +1,35 @@
 .drawer-items {
-    height: 100%;
+  height: 100%;
 }
 
 .drawer-items .drawer-item {
-    display: block;
+  display: block;
 }
 
 .main-slot {
-    position: relative;
-    overflow: auto;
+  position: relative;
+  overflow: auto;
+}
+
+.app {
+  -webkit-transition: opacity 1s ease-out;
+  transition: opacity 1s ease-out;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.splash-screen {
+  -webkit-transition: opacity 0.5s ease-out;
+  transition: opacity 0.5s ease-out;
+}
+
+body.loaded .app {
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+}
+
+body.loaded .splash-screen {
+  opacity: 0;
 }

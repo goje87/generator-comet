@@ -8,5 +8,9 @@
     "cocoonjs": "^1.0.0-0.9.0",
     "serve-static": "^1.10.0",
     "commander": "^2.9.0"
+  },
+  "scripts": {
+    "start": "pm2 start server.json",
+    "stop": "pm2 stop server.json"
   }
 }

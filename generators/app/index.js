@@ -6,12 +6,19 @@ var _ = require('lodash');
 
 // Converts comma separated `str` to an array
 function arrayfi(str) {
-  return str.split(/,\s?/);
+  if(_.isArray(str)) return str;
+
+  return str.toString().split(/,\s?/);
 }
 
 module.exports = yeoman.generators.Base.extend({
+  initializing: function() {
+    this.props = this.config.get('props');
+  },
+
   prompting: function () {
-    var done = this.async();
+    var done = this.async(),
+        props = this.props = this.props || {};
 
     // Have Yeoman greet the user.
     this.log(yosay(
@@ -23,35 +30,39 @@ module.exports = yeoman.generators.Base.extend({
       message: 'name:',
       name: 'name',
       type: 'input',
-      default: this.appname
+      default: props.name || this.appname
     },
     {
       message: 'version:',
       name: 'version',
       type: 'input',
-      default: '0.1.0'
+      default: props.version || '0.0.1'
     },
     {
       message: 'description:',
       name: 'description',
-      type: 'input'
+      type: 'input',
+      default: props.description
     },
     {
       message: 'keywords:',
       name: 'keywords',
-      type: 'input'
+      type: 'input',
+      default: props.keywords
     },
     {
       message: 'authors:',
       name: 'authors',
-      type: 'input'
+      type: 'input',
+      default: props.authors
     }];
 
     this.prompt(prompts, function (props) {
       props.keywords = arrayfi(props.keywords);
       props.authors = arrayfi(props.authors);
 
-      this.props = props;
+      _.extend(this.props, props);
+      console.log(this.props);
       this.props.kebabCasedName = _.kebabCase(props.name);
       this.props.camelCasedName = _.camelCase(props.name);
 
@@ -67,14 +78,20 @@ module.exports = yeoman.generators.Base.extend({
 
       [
         '.bowerrc',
+        '.gitignore',
         'bower.json',
         'package.json',
         'server.js',
-        'setup.sh',
+        'server.json',
+        'sh/npmInstallGlobal.sh',
+        'sh/setup.sh',
         'www/index.html',
+        'www/cordova.js',
         'www/themes',
         'www/css',
-        'www/components/pages'
+        'www/js',
+        'www/components/pages',
+        'www/components/splash-screen'
       ].map(function(path) {
         this.fs.copyTpl(
           this.templatePath(path),
@@ -90,11 +107,26 @@ module.exports = yeoman.generators.Base.extend({
         this.props
       );
 
+      //copy non-text files
+      [
+        'www/img'
+      ].map(function(path) {
+        this.fs.copy(
+          this.templatePath(path),
+          this.destinationPath(path)
+        );
+      }.bind(this));
+
       this.composeWith('comet:page', {args: ['home']});
     }
   },
 
   install: function () {
-    this.installDependencies();
+    this.installDependencies({
+      callback: function() {
+        this.spawnCommand('sh', ['sh/setup.sh']);
+      }.bind(this)
+    });
+
   }
 });
