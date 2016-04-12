@@ -44,7 +44,8 @@
         return 'components/pages/'+compName+'.html';
       };
 
-      router.route({path: '/', comp: 'pg-home'});
+      // android_asset/www/index.html is needed as that's the first page in case of a cordova app
+      router.route({path: '/(android_asset/www/index.html)?', comp: 'pg-home'});
       router.start();
     },
 
