@@ -1,0 +1,12 @@
+{
+  "content-security-policy": {
+    "default-src": [
+      "'self'",
+      "https://*.googleapis.com",
+      "https://*.gstatic.com",
+      "'unsafe-inline'"
+    ]
+  },
+
+  "appId": "xxxxx-xxxx-x-xxxx"
+}

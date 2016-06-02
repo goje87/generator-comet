@@ -5,12 +5,8 @@
   "keywords": <%- JSON.stringify(keywords) %>,
   "authors": <%- JSON.stringify(authors) %>,
   "dependencies": {
-    "cocoonjs": "^1.0.0-0.9.0",
     "serve-static": "^1.10.0",
-    "commander": "^2.9.0"
-  },
-  "scripts": {
-    "start": "pm2 start server.json",
-    "stop": "pm2 stop server.json"
+    "commander": "^2.9.0",
+    "finalhandler": "^0.4.1"
   }
 }

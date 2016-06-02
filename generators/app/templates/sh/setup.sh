@@ -2,4 +2,4 @@
 
 dir="$(dirname "$0")"
 
-sh $dir/npmInstallGlobal.sh yo generator-comet bower pm2
+sh $dir/npmInstallGlobal.sh bower pm2

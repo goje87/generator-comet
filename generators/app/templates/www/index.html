@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.googleapis.com https://*.gstatic.com 'unsafe-inline';">
 
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/comet.js"></script>
+    <script type="text/javascript" src="js/comet.out.js"></script>
     <script src="components/bower/webcomponentsjs/webcomponents-lite.min.js"></script>
 
     <link rel="import" href="components/splash-screen/splash-screen.html" />
@@ -21,7 +21,7 @@
     <splash-screen class="splash-screen" icon-src="img/logo.png"></splash-screen>
     <<%= kebabCasedName %>-app class="app"></<%= kebabCasedName %>-app>
     <script>
-      comet.initialize();
+      require('comet').initialize();
     </script>
   </body>
 </html>

@@ -82,7 +82,7 @@ module.exports = yeoman.generators.Base.extend({
         'bower.json',
         'package.json',
         'server.js',
-        'server.json',
+        'ecosystem.json',
         'sh/npmInstallGlobal.sh',
         'sh/setup.sh',
         'www/index.html',
@@ -91,7 +91,8 @@ module.exports = yeoman.generators.Base.extend({
         'www/css',
         'www/js',
         'www/components/pages',
-        'www/components/splash-screen'
+        'www/components/splash-screen',
+        'config'
       ].map(function(path) {
         this.fs.copyTpl(
           this.templatePath(path),
