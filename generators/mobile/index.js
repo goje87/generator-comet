@@ -3,7 +3,7 @@ var yeoman = require('yeoman-generator');
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function() {
-    this.props = this.config.get('props');
+    this.props = this.config.get('props') || {};
   },
 
   prompting: function() {
