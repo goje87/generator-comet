@@ -5,7 +5,6 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.googleapis.com https://*.gstatic.com 'unsafe-inline';">
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/comet.out.js"></script>
@@ -16,12 +15,15 @@
     <link rel="import" href="themes/theme.html" />
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script>
+    var comet = require('comet');
+    </script>
   </head>
   <body class="fullbleed layout vertical">
     <splash-screen class="splash-screen" icon-src="img/logo.png"></splash-screen>
     <<%= kebabCasedName %>-app class="app"></<%= kebabCasedName %>-app>
     <script>
-      require('comet').initialize();
+    comet.initialize();
     </script>
   </body>
 </html>

@@ -85,6 +85,7 @@ module.exports = yeoman.generators.Base.extend({
         'ecosystem.json',
         'sh/npmInstallGlobal.sh',
         'sh/setup.sh',
+        'sh/server.sh',
         'www/index.html',
         'www/cordova.js',
         'www/themes',

@@ -1,8 +1,9 @@
 {
   "apps": [{
     "name": "<%= name %>",
-    "script": "server.sh",
+    "script": "sh/server.sh",
     "watch": true,
+    "ignore_watch": ["www"],
     "env": {
       "NODE_ENV": "dev",
       "PORT": 3000,
