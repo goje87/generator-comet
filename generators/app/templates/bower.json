@@ -6,7 +6,7 @@
   "authors": <%- JSON.stringify(authors) %>,
   "dependencies": {
     "polymer": "Polymer/polymer#^1.0.0",
-    "page-router": "https://github.com/goje87/page-router.git",
+    "page-router": "https://gitlab.com/goje87/page-router.git",
     "paper-toolbar": "PolymerElements/paper-toolbar#^1.0.0",
     "paper-icon-button": "polymerelements/paper-icon-button#^1.0.0",
     "iron-icons": "PolymerElements/iron-icons#~1.0.3",
