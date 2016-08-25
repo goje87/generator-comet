@@ -77,8 +77,8 @@ module.exports = yeoman.generators.Base.extend({
     copyFiles: function () {
 
       [
-        '.bowerrc',
-        '.gitignore',
+        ['bowerrc', '.bowerrc'],
+        ['gitignore', '.gitignore'],
         'bower.json',
         'package.json',
         'server.js',
@@ -95,9 +95,13 @@ module.exports = yeoman.generators.Base.extend({
         'www/components/splash-screen',
         'config'
       ].map(function(path) {
+        if (typeof(path) === 'string') {
+          path = [path, path];
+        }
+
         this.fs.copyTpl(
-          this.templatePath(path),
-          this.destinationPath(path),
+          this.templatePath(path[0]),
+          this.destinationPath(path[1]),
           this.props
         );
       }.bind(this));
