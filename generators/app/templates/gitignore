@@ -36,3 +36,6 @@ www/components/bower/
 # Cordova
 platforms/
 plugins/
+
+# Comet
+comet.out.js

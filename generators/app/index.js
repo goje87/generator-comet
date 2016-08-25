@@ -90,7 +90,6 @@ module.exports = yeoman.generators.Base.extend({
         'www/cordova.js',
         'www/themes',
         'www/css',
-        'www/js',
         'www/components/pages',
         'www/components/splash-screen',
         'config'
